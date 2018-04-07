@@ -1,0 +1,37 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var \Orba\CurrencyConverter\Block\Converter\Form $block */
+?>
+<form method="get" id="converter" action="<?= $block->escapeUrl($block->getUrl('*/*/form')) ?>">
+    <input type="hidden" id="from_currency" name="from_currency" value="<?= \Orba\CurrencyConverter\Model\CurrencyInterface::CURRENCY_RUB ?>">
+    <input type="hidden" id="to_currency" name="to_currency" value="<?= \Orba\CurrencyConverter\Model\CurrencyInterface::CURRENCY_PLN ?>">
+    <fieldset class="fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <div class="field note"><?= $block->escapeHtml(__('Converter')) ?></div>
+        <div class="field required">
+            <label for="from_amount" class="label"><span>RUB</span></label>
+            <div class="control">
+                <input type="text" name="from_amount" alt="from_amount" id="from_amount" class="input-text" data-validate="{required:true, 'validate-zero-or-greater':true}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="to_amount" class="label"><span>PLN</span></label>
+            <div class="control">
+                <input type="text" name="to_amount" alt="to_amount" id="to_amount" class="input-text" readonly>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary"><span><?= $block->escapeHtml(__('Convert')) ?></span></button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+{
+    "#converter": {
+        "Orba_CurrencyConverter/js/converter": <?= $block->getOptionsJson() ?>
+    }
+}
+</script>

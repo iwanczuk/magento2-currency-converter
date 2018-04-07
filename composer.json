@@ -1,0 +1,19 @@
+{
+    "name": "orba/currency-converter",
+    "require": {
+        "magento/framework": ">=100.0 <102"
+    },
+    "type": "magento2-module",
+    "license": [
+        "MIT"
+    ],
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Orba\\CurrencyConverter\\": ""
+        }
+    }
+}

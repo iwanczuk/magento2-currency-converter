@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Orba\CurrencyConverter\Model\ConverterInterface" type="Orba\CurrencyConverter\Model\Converter" />
+    <preference for="Orba\CurrencyConverter\Model\Converter\RateProviderListInterface" type="Orba\CurrencyConverter\Model\Converter\RateProviderList" />
+    <type name="Orba\CurrencyConverter\Model\Converter\RateProviderList">
+        <arguments>
+            <argument name="providers" xsi:type="array">
+                <item name="fixerio" xsi:type="object">Orba\CurrencyConverter\Model\Converter\RateProvider\FixerIoRateProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
